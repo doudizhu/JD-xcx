@@ -142,5 +142,13 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 跳转详情页
+  switchProlistDetail(e){
+    let index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/detail/index?id=' + this.data.prolist[index].id
+    })
+  },
 })
