@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* 兼容内容不能铺满屏幕时 */
+  min-height:100.1%; 
 }
 .prolist_item{
   padding: 6rpx 0;
