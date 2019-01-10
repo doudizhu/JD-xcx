@@ -48,4 +48,14 @@ Page({
       curIndex:index,
     })
   },
+  // 展示列表子目录文件视图
+  showListView(e){
+    // console.log(e.currentTarget.dataset.txt)
+    let txt = e.currentTarget.dataset.txt
+    // 导航跳转的方法
+    wx.navigateTo({
+      url:'/pages/list/index?title='+txt,
+    })
+    
+  }
 })
