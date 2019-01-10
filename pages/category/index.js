@@ -28,7 +28,7 @@ Page({
         "content-type":"application/json"
       },
       success(res){
-        console.log(res.data)
+        // console.log(res.data)
         self.setData({
           navLeftItems:res.data.navLeftItems,
           navRightItems:res.data.navRightItems,
