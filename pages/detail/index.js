@@ -13,6 +13,8 @@ Page({
       desc:"【白条支付】首单享立减优惠",
     },
     hideBaitiao:true,
+
+    hideBuy:true,
   },
 
   /**
@@ -112,6 +114,9 @@ Page({
     })
   },
   popBuyView() {
-    console.log('显示商品')
+    // console.log('显示商品')
+    this.setData({
+      hideBuy: false,
+    })
   },
 })

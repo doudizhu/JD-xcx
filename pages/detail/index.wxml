@@ -36,7 +36,9 @@
       bind:popView="popBuyView"
       ></infocell>
   </view>
+
   <!-- 白条弹框 -->
-  
   <IOU baitiao='{{baitiao}}' hideBaitiao='{{hideBaitiao}}' bind:updateSelect='updateSelectItem'></IOU>
+  <!-- 购买弹框 -->
+  <buy hideBuy='{{hideBuy}}' partData='{{partData}}'></buy>
 </view>
