@@ -28,6 +28,9 @@ Component({
           hideBuy:true,
         })
       }
-    }
+    },
+    getCount(e){
+      console.log(e)
+    },
   }
 })
