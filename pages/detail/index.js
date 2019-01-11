@@ -119,4 +119,11 @@ Page({
       hideBuy: false,
     })
   },
+  updateCount(e){
+    let partData = this.data.partData
+    partData.count = e.detail.val
+    this.setData({
+      partData:partData
+    })
+  },
 })

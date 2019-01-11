@@ -40,5 +40,5 @@
   <!-- 白条弹框 -->
   <IOU baitiao='{{baitiao}}' hideBaitiao='{{hideBaitiao}}' bind:updateSelect='updateSelectItem'></IOU>
   <!-- 购买弹框 -->
-  <buy hideBuy='{{hideBuy}}' partData='{{partData}}'></buy>
+  <buy hideBuy='{{hideBuy}}' partData='{{partData}}' bind:onGetCount="updateCount"></buy>
 </view>

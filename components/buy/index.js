@@ -30,7 +30,8 @@ Component({
       }
     },
     getCount(e){
-      console.log(e)
+      // console.log(e)
+      this.triggerEvent('onGetCount',e.detail)
     },
   }
 })
