@@ -8,7 +8,10 @@ Page({
    */
   data: {
     partData: {},
-    baitiao: []
+    baitiao: [],
+    biaotiaoSelectItem:{
+      desc:"【白条支付】首单享立减优惠",
+    }
   },
 
   /**
