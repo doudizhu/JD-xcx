@@ -32,5 +32,18 @@ Component({
         })
       }
     },
+    // 选择白条分期
+    selectItem(e){
+      let index = e.currentTarget.dataset.index
+      let baitiao = this.data.baitiao
+      for(let i=0;i<baitiao.length;i++){
+        baitiao[i].select=false;
+      }
+      baitiao[index].select = !baitiao[index].select
+
+      this.setData({
+        baitiao:baitiao
+      })
+    },
   }
 })
