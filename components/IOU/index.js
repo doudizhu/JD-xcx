@@ -17,7 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    selectIndex:0
   },
 
   /**
@@ -42,8 +42,19 @@ Component({
       baitiao[index].select = !baitiao[index].select
 
       this.setData({
-        baitiao:baitiao
+        baitiao:baitiao,
+        selectIndex: index,
       })
+    },
+    // 点击打白条
+    makeBaitiao(e){
+      this.setData({
+        hideBaitiao:true,
+      })
+
+      const selectItem = this.data.baitiao[this.data.selectIndex]
+      // 事件传递
+      this.triggerEvent('updateSelect', selectItem)
     },
   }
 })

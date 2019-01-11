@@ -105,6 +105,12 @@ Page({
       hideBaitiao:false,
     })
   },
+  updateSelectItem(e){
+    // console.log(e)
+    this.setData({
+      baitiaoSelectItem:e.detail
+    })
+  },
   popBuyView() {
     console.log('显示商品')
   },
