@@ -25,6 +25,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    popView:function(){
+      // console.log(123)
+      // 注册事件
+      this.triggerEvent('popView')
+    },
   }
 })

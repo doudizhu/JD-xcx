@@ -24,8 +24,16 @@
     </view>
 
     <!-- 支付 -->
-    <infocell title='支付' desc='{{biaotiaoSelectItem.desc}}'></infocell>
+    <infocell 
+      title='支付' 
+      desc='{{biaotiaoSelectItem.desc}}'
+      bind:popView="popBaitiaoView"
+      ></infocell>
     <!-- 已选 -->
-    <infocell title='已选' desc='{{partData.count}}件'></infocell>
+    <infocell 
+      title='已选' 
+      desc='{{partData.count}}件'
+      bind:popView="popBuyView"
+      ></infocell>
   </view>
 </view>

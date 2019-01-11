@@ -94,5 +94,13 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+
+  popBaitiaoView(){
+    console.log('显示白条')
+  },
+  popBuyView() {
+    console.log('显示商品')
+  },
 })
