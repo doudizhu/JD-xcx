@@ -126,4 +126,7 @@ Page({
       partData:partData
     })
   },
+  addCart(){
+    console.log('加入购物车')
+  }
 })

@@ -33,5 +33,13 @@ Component({
       // console.log(e)
       this.triggerEvent('onGetCount',e.detail)
     },
+    buy(){
+      this.setData({
+        hideBuy:true
+      })
+
+      // 事件传递
+      this.triggerEvent('buyEvent')
+    }
   }
 })
