@@ -1,9 +1,9 @@
-<view class='popupDom' hidden='{{hideBaitiao}}'>
+<view class='popupDom' data-target="self" catchtap='hideBaitiaoView' hidden='{{hideBaitiao}}'>
   <!-- 头部 -->
   <view class='pop_main'>
     <view class='pop_header'>
       打白条购买
-      <text>X</text>
+      <text data-target="self" catchtap='hideBaitiaoView'>X</text>
     </view>
     <!-- 中间 -->
     <view class='pop_body'>
