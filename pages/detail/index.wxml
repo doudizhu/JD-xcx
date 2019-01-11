@@ -26,7 +26,7 @@
     <!-- 支付 -->
     <infocell 
       title='支付' 
-      desc='{{biaotiaoSelectItem.desc}}'
+      desc='{{baitiaoSelectItem.desc}}'
       bind:popView="popBaitiaoView"
       ></infocell>
     <!-- 已选 -->
@@ -36,4 +36,7 @@
       bind:popView="popBuyView"
       ></infocell>
   </view>
+  <!-- 白条弹框 -->
+  
+  <IOU baitiao='{{baitiao}}' hideBaitiao='{{hideBaitiao}}'></IOU>
 </view>
