@@ -47,6 +47,9 @@ Component({
 
       // 数据改变时，向父组件传递新数据
       this.triggerEvent('myevent', myEventDetail)
+
+      // 购物车时调用，点击减号触发
+      this.triggerEvent('subevent')
     },
     add(e){
       let count = this.data.count
@@ -60,6 +63,9 @@ Component({
 
       // 数据改变时，向父组件传递新数据
       this.triggerEvent('myevent', myEventDetail)
+
+      // 购物车时调用，点击加号触发
+      this.triggerEvent('subevent')
     },
   }
 })
