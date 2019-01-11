@@ -34,11 +34,32 @@ Component({
     },
     subtract(e){
       // console.log(2);
-      console.log(e)
+      // console.log(e)
+      let count = this.data.count
+      count > 1 ? count-- : 1
+      var myEventDetail ={
+        val:count
+      }
+
+      this.setData({
+        count:count
+      })
+
+      // 数据改变时，向父组件传递新数据
+      this.triggerEvent('myevent', myEventDetail)
     },
     add(e){
-      // console.log(3);
-      console.log(e)
+      let count = this.data.count
+      var myEventDetail = {
+        val: ++count
+      }
+
+      this.setData({
+        count: count
+      })
+
+      // 数据改变时，向父组件传递新数据
+      this.triggerEvent('myevent', myEventDetail)
     },
   }
 })
