@@ -53,7 +53,12 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    // 页面离开时更新storage
+    const cartArray = this.data.cartArray
+    wx.setStorage({
+      key: 'cartInfo',
+      data: cartArray,
+    })
   },
 
   /**
