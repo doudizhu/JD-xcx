@@ -15,6 +15,8 @@ Page({
     hideBaitiao:true,
 
     hideBuy:true,
+
+    badgeCount: 0,
   },
 
   /**
@@ -62,7 +64,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const self = this
+    wx.getStorage({
+      key: 'cartInfo',
+      success: function(res) {
+        const cartArray = res.data
+        self.setBadge(cartArray)
+      },
+    })
   },
 
   /**
@@ -163,6 +172,9 @@ Page({
             data: cartArray,
           })
         }
+
+        // 商品数量
+        self.setBadge(cartArray)
       },
       fail(res){
         let partData = self.data.partData
@@ -174,6 +186,9 @@ Page({
           key: 'cartInfo',
           data: cartArray,
         })
+
+        // 商品数量
+        self.setBadge(cartArray)
       }
     })
     wx.showToast({
@@ -181,5 +196,11 @@ Page({
       icon: 'success',
       duration: 3000,
     })
-  }
+  },
+  // 商品数量方法
+  setBadge(cartArray){
+    this.setData({
+      badgeCount: cartArray.length
+    })
+  },
 })
