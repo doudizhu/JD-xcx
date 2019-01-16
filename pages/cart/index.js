@@ -94,5 +94,14 @@ Page({
     this.setData({
       cartArray: cartArray,
     })
-  }
+  },
+
+  // 点击跳转商品详情页
+  switchGoodDetail(e){
+    const index = e.currentTarget.dataset.index
+    const cartArray = this.data.cartArray
+    wx.navigateTo({
+      url: '/pages/detail/index?id=' + cartArray[index].id,
+    })
+  },
 })
