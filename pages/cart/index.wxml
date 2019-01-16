@@ -20,7 +20,7 @@
                 <view class='good_price'>
                    <text class='price'>{{item.price}}</text>
                    <!-- 商品数量 -->
-                   <amount count='{{item.total}}' data-index='{{index}}' bind:myevent="onGetCount" bind:subevent='subCount' bind:addevent='addCount'></amount>
+                   <amount bind:myevent="getCount" data-index='{{index}}' count='{{item.total}}'></amount>
 
                 </view>
              </view>

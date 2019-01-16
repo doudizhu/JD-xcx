@@ -82,5 +82,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getCount(e){
+    // console.log(e)
+    const index = e.currentTarget.dataset.index
+    const cartArray = this.data.cartArray
+
+    cartArray[index].total = e.detail.val
+    // 更新data
+    this.setData({
+      cartArray: cartArray,
+    })
   }
 })
