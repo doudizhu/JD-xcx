@@ -203,4 +203,10 @@ Page({
       badgeCount: cartArray.length
     })
   },
+
+  showCartView(){
+    wx.switchTab({
+      url: '/pages/cart/index',
+    })
+  },
 })
