@@ -33,6 +33,10 @@ Page({
       success: function(res) {
         const cartArray = res.data
 
+        cartArray.forEach(cart => {
+          cart.select = false; // 全都不选中
+        })
+
         self.setData({
           cartArray: cartArray,
         })
@@ -107,6 +111,19 @@ Page({
     const cartArray = this.data.cartArray
     wx.navigateTo({
       url: '/pages/detail/index?id=' + cartArray[index].id,
+    })
+  },
+
+  selectGoods(e){
+    const index = e.currentTarget.dataset.index;
+    const cartArray = this.data.cartArray;
+
+    // 设置选中或者不选中状态
+    cartArray[index].select = !cartArray[index].select;
+    
+    // 更新数据
+    this.setData({
+      cartArray: cartArray,
     })
   },
 })
