@@ -65,7 +65,7 @@ Component({
       this.triggerEvent('myevent', myEventDetail)
 
       // 购物车时调用，点击加号触发
-      this.triggerEvent('subevent')
+      this.triggerEvent('addevent')
     },
   }
 })

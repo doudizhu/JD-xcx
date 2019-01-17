@@ -148,4 +148,39 @@ Page({
       totalCount: totalCount,
     })
   },
+
+  subCount(e){
+    const index = e.currentTarget.dataset.index;
+    const cartArray = this.data.cartArray;
+    // 合计
+    let totalMoney = Number(this.data.totalMoney);
+
+    // 计算金额
+    if(cartArray[index].select){
+      totalMoney -= Number(cartArray[index].price)
+    }
+
+    // 更新数据
+    this.setData({
+      totalMoney: String(totalMoney.toFixed(2))
+    })
+
+  },
+  addCount(e) {
+
+    const index = e.currentTarget.dataset.index;
+    const cartArray = this.data.cartArray;
+    // 合计
+    let totalMoney = Number(this.data.totalMoney);
+
+    // 计算金额
+    if (cartArray[index].select) {
+      totalMoney += Number(cartArray[index].price)
+    }
+
+    // 更新数据
+    this.setData({
+      totalMoney: String(totalMoney.toFixed(2))
+    })
+  },
 })
