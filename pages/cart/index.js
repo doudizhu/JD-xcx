@@ -44,6 +44,9 @@ Page({
 
         self.setData({
           cartArray: cartArray,
+          selectAll: false,
+          totalMoney: '0.00',
+          totalCount: 0,
         })
 
         // 设置tabbar图标
