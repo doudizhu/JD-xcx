@@ -30,5 +30,21 @@
           <view class='del' catchtap="del" data-index="{{index}}">删除</view>
        </view>
     </block>
+
+    <!-- 结算模块 -->
+    <view class='fixBar'>
+      <view class='select_all' catchtap='selectAll'>
+        <image wx:if='{{selectAll}}' class='icon' src='/image/selected.png'></image>
+        <image wx:else class='icon' src='/image/unselect.png'></image>
+        <text>全选</text>
+      </view>
+      <view class='total'>
+        <text>合计:</text>
+        <text class='money'>¥{{totalMoney}}</text>
+      </view>
+      <view class='btn_amount'>
+        <button>去结算({{totalCount}})</button>
+      </view>
+    </view>
   </view>
 </view>

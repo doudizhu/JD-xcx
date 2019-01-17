@@ -6,6 +6,11 @@ Page({
    */
   data: {
     cartArray: [],
+
+    // 结算模块
+    totalMoney: '0.00', // 总价
+    totalCount: 0, // 商品数量
+    selectAll: false, // 是否全选
   },
 
   /**
@@ -118,12 +123,29 @@ Page({
     const index = e.currentTarget.dataset.index;
     const cartArray = this.data.cartArray;
 
+    // 合计和数量
+    let totalMoney = Number(this.data.totalMoney);
+    let totalCount = this.data.totalCount;
+
     // 设置选中或者不选中状态
     cartArray[index].select = !cartArray[index].select;
+
+    // 如果选中
+    if(cartArray[index].select){
+      totalMoney += Number(cartArray[index].price) * cartArray[index].total
+      totalCount++
+    }
+    // 没有选中
+    else{
+      totalMoney -= Number(cartArray[index].price) * cartArray[index].total
+      totalCount--
+    }
     
     // 更新数据
     this.setData({
       cartArray: cartArray,
+      totalMoney: String(totalMoney.toFixed(2)),
+      totalCount: totalCount,
     })
   },
 })
