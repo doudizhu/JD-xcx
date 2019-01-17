@@ -119,6 +119,7 @@ Page({
     })
   },
 
+  // 选择单个
   selectGoods(e){
     const index = e.currentTarget.dataset.index;
     const cartArray = this.data.cartArray;
@@ -149,6 +150,7 @@ Page({
     })
   },
 
+  // 自建
   subCount(e){
     const index = e.currentTarget.dataset.index;
     const cartArray = this.data.cartArray;
@@ -166,6 +168,7 @@ Page({
     })
 
   },
+  // 自增
   addCount(e) {
 
     const index = e.currentTarget.dataset.index;
@@ -181,6 +184,40 @@ Page({
     // 更新数据
     this.setData({
       totalMoney: String(totalMoney.toFixed(2))
+    })
+  },
+
+  // 全选
+  selectAll(){
+    const cartArray = this.data.cartArray
+    let totalMoney = 0
+    let totalCount = 0
+    let selectAll = this.data.selectAll
+
+    selectAll = !selectAll
+
+    cartArray.forEach(cart => {
+      // 设置选中或不选中状态 和全选按钮是一样的状态
+      cart.select = selectAll
+
+      // 计算总金额和商品个数
+      if(cart.select){
+        totalMoney += Number(cart.price) * cart.total
+        totalCount++
+      }
+      // 置为0
+      else{
+        totalMoney = 0
+        totalCount = 0
+      }
+    })
+
+    // 更新data
+    this.setData({
+      cartArray: cartArray,
+      totalMoney: String(totalMoney.toFixed(2)),
+      totalCount: totalCount,
+      selectAll: selectAll,
     })
   },
 })
