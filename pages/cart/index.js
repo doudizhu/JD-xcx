@@ -131,6 +131,9 @@ Page({
     // 设置选中或者不选中状态
     cartArray[index].select = !cartArray[index].select;
 
+    // 单选联动全选
+    let selectAll = this.data.selectAll
+
     // 如果选中
     if(cartArray[index].select){
       totalMoney += Number(cartArray[index].price) * cartArray[index].total
@@ -140,6 +143,8 @@ Page({
     else{
       totalMoney -= Number(cartArray[index].price) * cartArray[index].total
       totalCount--
+      // 取消全选
+      selectAll = false
     }
     
     // 更新数据
@@ -147,6 +152,7 @@ Page({
       cartArray: cartArray,
       totalMoney: String(totalMoney.toFixed(2)),
       totalCount: totalCount,
+      selectAll: selectAll
     })
   },
 
