@@ -260,5 +260,36 @@ Page({
     var touchMoveX = e.changedTouches[0].clientX,
         touchMoveY = e.changedTouches[0].clientY
     // console.log(touchMoveX)
+
+    // 调用计算角度方法 获取角度
+    var angel = this.angel({X:startX,Y:startY},{X:touchMoveX,Y:touchMoveY})
+
+    // 遍历数组中的所有对象
+    this.data.cartArray.forEach((cart,i) => {
+      cart.isTouchMove = false
+      // 滑动的角度>30 直接return
+      if(Math.abs(angel) > 30) return
+
+      // 匹配
+      if(i == index){
+        // 左滑
+        if(touchMoveX < startX){
+          cart.isTouchMove = true
+        }
+      }
+    })
+
+    // 更新数据
+    this.setData({
+      cartArray: this.data.cartArray,
+    })
+  },
+  // 计算角度方法
+  angel(start,end) {
+    var _X = end.X - start.X,
+        _Y = end.Y - start.Y
+    
+    // 返回角度 Math.atan() 返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI)
   },
 })
