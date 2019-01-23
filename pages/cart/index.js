@@ -11,6 +11,10 @@ Page({
     totalMoney: '0.00', // 总价
     totalCount: 0, // 商品数量
     selectAll: false, // 是否全选
+
+    // 删除模块
+    startX: 0, // 开始坐标
+    startY: 0, // 开始坐标
   },
 
   /**
@@ -229,5 +233,32 @@ Page({
       totalCount: totalCount,
       selectAll: selectAll,
     })
+  },
+
+  touchstart(e) {
+    // console.log(e)
+    // 开始触摸时，重置所有删除
+    this.data.cartArray.forEach(cart => {
+      if(cart.isTouchMove) // 为ture的时候
+        cart.isTouchMove = false; // 其他的对象都为false
+    })
+
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      cartArray: this.data.cartArray,
+    })
+  },
+  touchmove(e) {
+    var index = e.currentTarget.dataset.index
+
+    // 开始x和y坐标
+    var startX = this.data.startX,
+        startY = this.data.startY
+
+    // 移动的x和y坐标
+    var touchMoveX = e.changedTouches[0].clientX,
+        touchMoveY = e.changedTouches[0].clientY
+    // console.log(touchMoveX)
   },
 })
