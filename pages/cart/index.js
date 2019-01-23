@@ -40,7 +40,7 @@ Page({
     wx.getStorage({
       key: 'cartInfo',
       success: function(res) {
-        const cartArray = res.data
+        const cartArray = typeof res.data == 'string' ? [] : res.data// 容错
 
         cartArray.forEach(cart => {
           cart.select = false; // 全都不选中
@@ -291,5 +291,63 @@ Page({
     
     // 返回角度 Math.atan() 返回数字的反正切值
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI)
+  },
+
+  // 删除商品
+  del(e) {
+    var self = this
+    const index = e.currentTarget.dataset.index
+
+    wx.getStorage({
+      key: 'cartInfo',
+      success(res) {
+        const partData = typeof res.data == 'string' ? [] : res.data// 容错
+        partData.forEach((cart,i) => {
+          if (cart.title == self.data.cartArray[index].title){
+            partData.splice(i,1)
+          }
+        })
+
+        // 删完之后，存储
+        wx.setStorage({
+          key: 'cartInfo',
+          data: 'partData',
+        })
+
+        // 更新数据
+        self.update(index);
+      }
+    })
+  },
+  update(index) {
+    var cartArray = this.data.cartArray
+    var totalMoney = String(Number(this.data.totalMoney).toFixed(2))
+    var totalCount = this.data.totalCount
+
+    // 计算价格和数量
+    if(cartArray[index].select){
+      totalMoney -= Number(cartArray[index].price) * cartArray[index].total
+      totalCount--
+    }
+
+    // 删除
+    cartArray.splice(index, 1)
+
+    // 更新数据
+    this.setData({
+      cartArray,
+      totalMoney,
+      totalCount,
+    })
+
+    // 设置tabBar图标
+    cartArray.length > 0 
+      ? wx.setTabBarBadge({
+        index: 2,
+        text: String(cartArray.length),
+      })
+      : wx.removeTabBarBadge({
+        index: 2,
+      })
   },
 })
