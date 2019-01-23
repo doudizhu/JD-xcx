@@ -40,6 +40,7 @@ Page({
 
         cartArray.forEach(cart => {
           cart.select = false; // 全都不选中
+          cart.isTouchMove = false; // 是否滑动
         })
 
         self.setData({

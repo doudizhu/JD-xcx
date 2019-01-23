@@ -5,7 +5,7 @@
   </view>
   <view wx:else class='section'>
     <block wx:for='{{cartArray}}' wx:key="{{index}}">
-      <view class="good_list" bindtap='switchGoodDetail' data-index="{{index}}">
+      <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" bindtap='switchGoodDetail' data-index="{{index}}">
           <view class='content'>
           <view class='select_icon' catchtap='selectGoods' data-index='{{index}}'>       
             <image wx:if='{{item.select}}' src='/image/selected.png'/>
